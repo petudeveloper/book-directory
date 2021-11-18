@@ -14,7 +14,7 @@ let books = [
 
 // index page
 app.get('/', (req, resp) => {
-  resp.send("<div><h1>Welcome to Book directory</h1><p>API endpoints</p><ul><li>'/api/books': get all the books</li></ul></div>")
+  resp.send("<div><h1>Welcome to Book directory</h1><p>API endpoints</p><ul><li>GET: '/api/books' to see all the books on the directory</li><li>GET: '/api/books/:id' to see a specific book from the directory by its id.</li><li>DELETE:  '/api/books/:id' to remove a specific book from the directory by its id.</li><li>POST: '/api/books' to add a new book to the directory <b>NOTE:</b> You need to pass a body with a title and author. <b>Content-Type: application/json</b>.</li></ul></div>")
 })
 
 // Get all the boos

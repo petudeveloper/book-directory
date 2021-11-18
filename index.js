@@ -12,14 +12,17 @@ let books = [
   }
 ]
 
+// index page
 app.get('/', (req, resp) => {
   resp.send("<div><h1>Welcome to Book directory</h1><p>API endpoints</p><ul><li>'/api/books': get all the books</li></ul></div>")
 })
 
+// Get all the boos
 app.get('/api/books', (req, resp) => {
   resp.json(books)
 })
 
+// Get a book by id
 app.get('/api/books/:id', (req, resp) => {
   const id = parseInt(req.params.id)
   const book = books.find((book) => book.id === id)
@@ -30,6 +33,7 @@ app.get('/api/books/:id', (req, resp) => {
   }
 })
 
+// Delete a book by id
 app.delete('/api/books/:id', (req, resp) => {
   const id = parseInt(req.params.id)
   const book = books.find((book) => book.id === id)
@@ -37,6 +41,7 @@ app.delete('/api/books/:id', (req, resp) => {
   resp.json(book)
 })
 
+// Add a new book
 app.post('/api/books/', (req, resp) => {
   const body = req.body
   const id = books.length + 1
